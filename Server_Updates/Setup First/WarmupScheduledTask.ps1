@@ -43,6 +43,17 @@ Stop-Process -name "msedge"
 Stop-Process -name "ms-teams"
 Stop-Process -name "chrome"
 
+#Generate a new password for Autologon Account, then disable it
+# Set username and computer target
+$userName = "AutoLogonUser"
+# Generate a hard password (16 chars, complex)
+Add-Type -AssemblyName System.Web
+$password = [System.Web.Security.Membership]::GeneratePassword(16, 4)
+# Convert plain text password to secure string
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+Set-LocalUser -Name $userName -Password $securePassword
+Disable-LocalUser -Name $userName
+
 #Remove Warmup Scripts
 If (Test-Path $targetPath) {Remove-Item $targetPath -Force}
 If (Test-Path $targetXmlPath) {Remove-Item $targetXmlPath -Force}
