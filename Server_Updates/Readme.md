@@ -43,12 +43,13 @@
     8. Run a Windows Defender scan to hash everything on the image as scanned to prevent re-scans until changed.
     9. If WEM is installed refresh the local cache in case the WEM server is unavailable on machine boots.
     10. Disable any scheduled tasks in the root of the Task Scheduler folder (always put items you want to run in a subfolder)
-    11. Remove any temp files and files from the all user desktop (comment out the Desktop line if you don't want to do that)
+    11. Remove any temp files and files from the all user desktop (comment out these lines if you don't want to clear those folders)
     12. Remove Arc Setup if it is installed (comment out if you are using Arc)
-    13. Runs the CertificateGeneration.ps1 to create a new certificate and bind it to the Broker Services.
-    14. Runs the SetupAutoLogon.ps1 script to generate a new local AutoLogon password, and enable Autologon for the next boot.
-    15. Remove machine from Azure AD so hybrid registers correctly (make sure you have modified the WorkplaceJoin Scheduled Task to run at Startup along with at Log on)
-    16. Shut down the machine so it can be captured.
+    13. Modifies the Workplace Join Scheduled task to add an at Startup trigger so that the machine obtains it's Azure AD entry before the user obtains their PRT.
+    14. Runs the CertificateGeneration.ps1 to create a new certificate and bind it to the Broker Services. (If you did not delete the helper script)
+    15. Runs the SetupAutoLogon.ps1 script to generate a new local AutoLogon password, and enable Autologon for the next boot. (If you did not delete the helper script)
+    16. Remove machine from Azure AD so hybrid registers correctly
+    17.  Shut down the machine so it can be captured.
 8. You now can deploy this image to your non-persistent catalogs.
 
 WARNING!!!!
