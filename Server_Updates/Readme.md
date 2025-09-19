@@ -6,12 +6,12 @@
 
 # How to setup for use.
 
-1. Place all these files on a network share, keeping the supplied folder struction, and adjust the files as listed above.
+1. Place all these files on a network share that just your Admin account has permission to, keeping the supplied folder struction, and adjust the files as listed above.
 2. If you want to use Autologon Warmup, modify the Setup First\VDA-SetupAutologonifusingWarmup.ps1 and execute the script.
 3. Reboot the machine for it to login as the AutoLogon user and setup it's profile.
 4. If you want to use the SSLVDA function, run the CA-CreateVDASSLCATemplate.ps1 on your CA and validate it creates the appropriate template.
 5. If you will be using this template with multiple machines, manually add the additional Maintenance Machines to the security of the template for Enrollment.
-6. If you want to use a SAN certificate, instead of a wildcard certificate, use the DDC-CreateCSVofMachinesforSANinsteadofWildCard.ps1 to query a Delivery Group and create a csv of machine names.  Place this FQDN.csv into the HelperScripts sub directory.
+6. If you want to use a SAN certificate, instead of a wildcard certificate, use the DDC-CreateCSVofMachinesforSANinsteadofWildCard.ps1 to query a Delivery Group and create a csv of machine names.  Place this FQDN.csv into the HelperScripts sub directory.  If you want to manually create the FQDN.csv, use the FQDN_example.txt as a template for your own machines.
 7. Use choco to deploy any applications you want auto updated.  I recommend anything internet deployed, such as browsers, putty, winscp, etc.  If you don't setup choco it won't be run as part of the update process.
 8. Modify the Machine-Updates-Servers.ps1 and Machine-Sealing-Servers.ps1 to include any additional steps for your environment that should be run every time updates and deployments are done.  For example:
     1. Antivirus updates and scans
@@ -29,7 +29,7 @@
     4. if you don't use choco it will look for firefox and chrome and use their local updaters'
     5. kick off windows update detection and download, but you still need to go to windows update to do the install.
     6. Creates a transcript of the process in your profile folder for you review of what happened.
-4. After those scripts finish do whatever other modifications to the image you want.  Feel free to add automated processes to that script as well to guarantee it works.
+4. After those scripts finish do whatever other modifications to the image required.
 5. Once you are ready to deploy, reboot your maintenance image.
 6. Log back in with your Domain admin build account.
 7. Go to your network share and right click on Machine-Sealing-Servers.ps1 and Run with Powershell.  The following steps will run for you.
