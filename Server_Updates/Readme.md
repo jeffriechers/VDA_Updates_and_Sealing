@@ -1,10 +1,10 @@
-```Things to do to customize these scripts for your environment
+'''Things to do to customize these scripts for your environment
 
 1. Modify Setup First\WarmupScheduledTask.ps1 and add/remove any apps you do or don't want to launch.  Also modify the timeout if your machine needs more time to load everything.
 2. If you don't want Teams or Onedrive autoupdated with the Machine-Updates-Servers.ps1, and if you aren't using VDASSL and/or AutoLogon Warmup, just delete them from the HelperScripts subdirectory.
 3. In the Setup First\VDA-SetupAutologonifusingWarmup.ps1 you can modify the variables at the top to adjust where you want the powershell and scheduled tasks to go on the c:\ drive, and also adjust the folder the scheduled tasks will go to in Task Scheduler.
 
-```How to setup for use.
+'''How to setup for use.
 
 1. Place all these files on a network share, keeping the supplied folder struction, and adjust the files as listed above.
 2. If you want to use Autologon Warmup, modify the Setup First\VDA-SetupAutologonifusingWarmup.ps1 and execute the script.
@@ -19,7 +19,7 @@
     c. Removing entries from the registry or files/folders from the file system
     d. Generalization programs for installed software packages.
 
-```How to use this automated patching process.
+'''How to use this automated patching process.
 1. Boot up your maintenance machine in read/write mode.
 2. Login with your Domain admin build account.
 3. Go to your network share and right click on Machine-Updates-Servers.ps1 and Run with Powershell.  The following steps will run for you.
