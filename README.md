@@ -1,6 +1,9 @@
 # VDA_Updates_and_Sealing
 These are the latest versions of my Machine Updates and Sealing Scripts.  I have used these scripts for Windows 10 and later, and Windows 2019 and later.
 
+# Coming Next
+- Check installed teams version, and don't reinstall if it is current.
+
 # New Features Oct 9, 2025
 1. Desktop OS update and sealing scripts.
 2. Desktop scripts won't start the Brokering process until after the warmup takes place, so no modification of Delivery Group is needed to prevent shutdown on logoff.
