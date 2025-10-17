@@ -1,11 +1,9 @@
 # VDA_Updates_and_Sealing
 These are the latest versions of my Machine Updates and Sealing Scripts.  I have used these scripts for Windows 10 and later, and Windows 2019 and later.
 
-# Coming Next
-- Check installed teams version, and don't reinstall if it is current.
-
 # New Feature Oct 17, 2025
-1. Modify Machine-Sealing-Desktops.ps1 to only stop and disable the Broker Service when using Warmup.
+1. TeamsUpdate.ps1 now checks the installed version against the downloaded version, and only updates if it is newer.
+2. Modify Machine-Sealing-Desktops.ps1 to only stop and disable the Broker Service when using Warmup.
    
 # New Features Oct 9, 2025
 1. Desktop OS update and sealing scripts.
