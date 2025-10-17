@@ -150,6 +150,9 @@ If (Test-Path $CertscriptPath) {
 $WarmupScriptPath = Join-Path -Path $PSScriptRoot -ChildPath "HelperScripts\SetupAutologon.ps1"
 If (Test-Path $WarmupScriptPath) {
     & "$WarmupScriptPath"
+#Set Broker services to Disabled
+Stop-Service BrokerAgent
+Set-Service BrokerAgent -StartupType disabled
 }
 
 #Ensure MMAgent settings are enabled and disabled for non-persistent environments
@@ -157,9 +160,7 @@ Enable-MMAgent -MemoryCompression -PageCombining
 Disable-MMAgent -ApplicationLaunchPrefetching
 Disable-MMAgent -ApplicationPreLaunch
 
-#Set Broker services to Disabled
-Stop-Service BrokerAgent
-Set-Service BrokerAgent -StartupType disabled
+
 
 #Remove Zero Machine from Hybrid Azure-AD
 $LeaveAzureADproc = Start-Process -Filepath "c:\windows\system32\dsregcmd.exe" -ArgumentList "/leave" -Passthru
