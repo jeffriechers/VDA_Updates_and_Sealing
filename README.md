@@ -4,6 +4,9 @@ These are the latest versions of my Machine Updates and Sealing Scripts.  I have
 # Coming Next
 - Check installed teams version, and don't reinstall if it is current.
 
+# New Feature Oct 17, 2025
+1. Modify Machine-Sealing-Desktops.ps1 to only stop and disable the Broker Service when using Warmup.
+   
 # New Features Oct 9, 2025
 1. Desktop OS update and sealing scripts.
 2. Desktop scripts won't start the Brokering process until after the warmup takes place, so no modification of Delivery Group is needed to prevent shutdown on logoff.
